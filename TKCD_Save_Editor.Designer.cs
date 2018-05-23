@@ -53,6 +53,7 @@
             this.appleLabel = new System.Windows.Forms.Label();
             this.lastMissionLabel = new System.Windows.Forms.Label();
             this.profileBox = new System.Windows.Forms.GroupBox();
+            this.vigourBox = new System.Windows.Forms.NumericUpDown();
             this.vigourLabel = new System.Windows.Forms.Label();
             this.expBox = new System.Windows.Forms.NumericUpDown();
             this.multiBox = new System.Windows.Forms.NumericUpDown();
@@ -77,7 +78,6 @@
             this.medalLabel = new System.Windows.Forms.Label();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.missionLabel = new System.Windows.Forms.Label();
-            this.vigourBox = new System.Windows.Forms.NumericUpDown();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.resourceGroup.SuspendLayout();
@@ -88,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.boughtBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appleBox)).BeginInit();
             this.profileBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vigourBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.multiBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.encounterBox)).BeginInit();
@@ -95,7 +96,6 @@
             this.missionGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bestTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vigourBox)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -355,6 +355,13 @@
             this.profileBox.TabIndex = 15;
             this.profileBox.TabStop = false;
             this.profileBox.Text = "资料";
+            // 
+            // vigourBox
+            // 
+            this.vigourBox.Location = new System.Drawing.Point(94, 165);
+            this.vigourBox.Name = "vigourBox";
+            this.vigourBox.Size = new System.Drawing.Size(163, 23);
+            this.vigourBox.TabIndex = 24;
             // 
             // vigourLabel
             // 
@@ -625,7 +632,7 @@
             this.missionBox.Size = new System.Drawing.Size(163, 25);
             this.missionBox.TabIndex = 17;
             this.missionBox.Text = "1-1";
-            this.missionBox.SelectedIndexChanged += new System.EventHandler(this.missionChange);
+            this.missionBox.SelectedIndexChanged += new System.EventHandler(this.MissionChange);
             // 
             // bestTimeLabel
             // 
@@ -663,13 +670,6 @@
             this.missionLabel.Text = "关卡：";
             this.missionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // vigourBox
-            // 
-            this.vigourBox.Location = new System.Drawing.Point(94, 165);
-            this.vigourBox.Name = "vigourBox";
-            this.vigourBox.Size = new System.Drawing.Size(163, 23);
-            this.vigourBox.TabIndex = 24;
-            // 
             // TKCD_Save_Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -703,6 +703,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.appleBox)).EndInit();
             this.profileBox.ResumeLayout(false);
             this.profileBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vigourBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.multiBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.encounterBox)).EndInit();
@@ -710,7 +711,6 @@
             this.missionGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bestTimeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vigourBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

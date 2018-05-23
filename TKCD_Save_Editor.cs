@@ -148,8 +148,7 @@ namespace TKCD_Save_Editor
             missionGroup.Enabled = true;
             saveItem.Enabled = true;
         }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:不要多次释放对象")]
+        
         private void SaveFile(object sender, EventArgs e)
         {
             saveFileDialog.FileName = "";
@@ -193,20 +192,20 @@ namespace TKCD_Save_Editor
         private void ReadMissionData()
         {
             string mission = missionBox.Text;
-            int pos = (mission[0] - '0') * 160 + (mission[2] - '0') * 16 + 3292;
+            int pos = (mission[0] - '0') * 0xA0 + (mission[2] - '0') * 0x10 + 0x0CDC;
 
             switch (Data.GetInt24Data(pos))
             {
-                case 1:
+                case 0x01:
                     missionStatusBox.Text = (string)missionStatusBox.Items[0];
                     break;
-                case 259:
+                case 0x0103:
                     missionStatusBox.Text = (string)missionStatusBox.Items[1];
                     break;
-                case 261:
+                case 0x0105:
                     missionStatusBox.Text = (string)missionStatusBox.Items[2];
                     break;
-                case 65541:
+                case 0x010005:
                     missionStatusBox.Text = (string)missionStatusBox.Items[3];
                     break;
                 default:
@@ -221,21 +220,21 @@ namespace TKCD_Save_Editor
         private void WriteMissionData()
         {
             string lastMission = lastMissionLabel.Text;
-            int lastPos = (lastMission[0] - '0') * 160 + (lastMission[2] - '0') * 16 + 3292;
+            int lastPos = (lastMission[0] - '0') * 0xA0 + (lastMission[2] - '0') * 0x10 + 0x0CDC;
 
             switch (missionStatusBox.SelectedIndex)
             {
                 case 0:
-                    Data.SetInt24Data(lastPos, 1);
+                    Data.SetInt24Data(lastPos, 0x01);
                     break;
                 case 1:
-                    Data.SetInt24Data(lastPos, 259);
+                    Data.SetInt24Data(lastPos, 0x0103);
                     break;
                 case 2:
-                    Data.SetInt24Data(lastPos, 261);
+                    Data.SetInt24Data(lastPos, 0x0105);
                     break;
                 case 3:
-                    Data.SetInt24Data(lastPos, 65541);
+                    Data.SetInt24Data(lastPos, 0x010005);
                     break;
             }
             Data.SetInt24Data(lastPos + 4, (uint)scoreBox.Value);
@@ -243,7 +242,7 @@ namespace TKCD_Save_Editor
             Data.SetInt16Data(lastPos + 12, (UInt16)(bestTimeBox.Value * 100));
         }
 
-        private void missionChange(object sender, EventArgs e)
+        private void MissionChange(object sender, EventArgs e)
         {
             missionBox.Focus();
             WriteMissionData();
